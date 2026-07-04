@@ -1,11 +1,3 @@
-
----
-
-## `src/fairness_lab.py`
-
-This is the Step 2 foundation. It sets paths, creates output directories, fixes the random seed, and records the software environment. The modelling functions will be added in later steps.
-
-```python
 """Shared configuration and utility functions for the fairness lab.
 
 This module contains project-wide constants and reproducibility helpers.
@@ -73,36 +65,14 @@ def ensure_project_directories() -> None:
 
 
 def set_global_seed(seed: int = RANDOM_STATE) -> None:
-    """Set random seeds used by Python and NumPy.
-
-    Parameters
-    ----------
-    seed:
-        Integer seed used for reproducibility.
-    """
+    """Set random seeds used by Python and NumPy."""
 
     random.seed(seed)
     np.random.seed(seed)
 
 
 def define_age_group(age: float | int) -> str:
-    """Convert an applicant's age into the lab's sensitive group.
-
-    Parameters
-    ----------
-    age:
-        Applicant age.
-
-    Returns
-    -------
-    str
-        ``"young"`` when age is below 25 and ``"old"`` otherwise.
-
-    Raises
-    ------
-    ValueError
-        If age is missing, non-finite or negative.
-    """
+    """Convert an applicant's age into the lab's sensitive group."""
 
     numeric_age = float(age)
 
@@ -119,18 +89,7 @@ def define_age_group(age: float | int) -> str:
 
 
 def installed_version(distribution_name: str) -> str:
-    """Return the installed version of a Python distribution.
-
-    Parameters
-    ----------
-    distribution_name:
-        Package distribution name used by pip.
-
-    Returns
-    -------
-    str
-        Installed version, or ``"not installed"``.
-    """
+    """Return the installed version of a Python distribution."""
 
     try:
         return metadata.version(distribution_name)
@@ -173,22 +132,8 @@ def get_environment_info() -> dict[str, Any]:
     }
 
 
-def save_environment_info(
-    destination: Path | None = None,
-) -> Path:
-    """Save environment details as a JSON file.
-
-    Parameters
-    ----------
-    destination:
-        Optional output path. When omitted, the information is saved as
-        ``outputs/environment.json``.
-
-    Returns
-    -------
-    pathlib.Path
-        Path of the saved JSON file.
-    """
+def save_environment_info(destination: Path | None = None) -> Path:
+    """Save environment details as a JSON file."""
 
     ensure_project_directories()
 

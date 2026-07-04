@@ -1,0 +1,23 @@
+{
+  "python_version": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+  "python_implementation": "CPython",
+  "operating_system": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "machine": "x86_64",
+  "random_state": 42,
+  "test_size": 0.3,
+  "positive_label": 1,
+  "negative_label": 0,
+  "age_threshold": 25,
+  "young_group_definition": "age < 25",
+  "old_group_definition": "age >= 25",
+  "package_versions": {
+    "numpy": "2.5.0",
+    "pandas": "3.0.3",
+    "matplotlib": "3.11.0",
+    "scikit-learn": "1.9.0",
+    "fairlearn": "0.14.0",
+    "openml": "0.15.1",
+    "jupyterlab": "4.6.0",
+    "ipykernel": "7.3.0"
+  }
+}
