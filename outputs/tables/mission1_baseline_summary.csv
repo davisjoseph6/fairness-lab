@@ -1,0 +1,2 @@
+model,accuracy,selection_rate,DP_difference,EO_difference
+Baseline with age,0.74,0.7533333333333333,0.11117652005718615,0.1387959866220736

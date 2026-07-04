@@ -1,0 +1,2 @@
+model,accuracy,selection_rate,DP_difference,EO_difference
+Model without age,0.7466666666666667,0.7533333333333333,0.11117652005718615,0.14423076923076927
