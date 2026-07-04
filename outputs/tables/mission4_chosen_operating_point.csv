@@ -1,0 +1,2 @@
+method,fairness_family_targeted,accuracy,selection_rate,DP_difference,EO_difference,old_TPR,young_TPR,TPR_gap_abs,old_FPR,young_FPR,FPR_gap_abs,old_PPV,young_PPV,notes
+Reweighing,Pre-processing / distribution balancing,0.7466666666666667,0.7666666666666667,0.07652846690774529,0.11180124223602483,0.8804347826086957,0.7692307692307693,0.1112040133779264,0.5072463768115942,0.6190476190476191,0.11180124223602483,0.8223350253807107,0.6060606060606061,Changes sample weights in training.

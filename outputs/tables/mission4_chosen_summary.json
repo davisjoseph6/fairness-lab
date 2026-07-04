@@ -1,0 +1,10 @@
+{
+  "chosen_method": "Reweighing",
+  "chosen_criterion": "Separation-oriented fairness: reduce unequal error rates, especially the false-rejection burden on creditworthy young applicants.",
+  "main_benefit": "Equalized-odds difference decreased from 0.144231 to 0.111801 without reducing accuracy.",
+  "secondary_benefit": "Demographic-parity difference decreased from 0.111177 to 0.076528.",
+  "human_benefit": "Young applicants who are actually creditworthy are approved more often; young TPR increased from 0.730769 to 0.769231.",
+  "main_cost": "Young FPR increased from 0.571429 to 0.619048 and young PPV decreased from 0.612903 to 0.606061.",
+  "who_pays": "The bank bears more residual cost through review, monitoring, and possible additional default risk.",
+  "deployment_position": "Decision support only, not fully automated approval or rejection."
+}
