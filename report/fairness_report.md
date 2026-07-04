@@ -55,3 +55,44 @@ counting relationship. When groups have different base rates, equal
 calibration or equal PPV does not generally coexist with equal error
 rates. A stakeholder demand for both equal calibration and equal FPR is
 therefore mathematically incompatible in ordinary non-perfect settings.
+
+## 3. Mitigation and fairness–accuracy frontiers
+
+The mitigation results show that "make it fair" is not a complete
+technical instruction. Each method changed a different fairness family.
+
+The baseline model without age had accuracy 0.746667, demographic-parity
+difference 0.111177, and equalized-odds difference 0.144231. Reweighing
+kept the same accuracy, 0.746667, while reducing demographic-parity
+difference to 0.076528 and equalized-odds difference to 0.111801. This
+was the best equalized-odds result among the main methods.
+
+ExponentiatedGradient with a demographic-parity constraint produced the
+highest accuracy, 0.766667, and almost eliminated the demographic-parity
+difference, reducing it to 0.000673. However, its equalized-odds
+difference increased to 0.173913. This shows that improving
+independence did not automatically improve separation. The improvement
+in selection parity came with a larger false-positive-rate gap: the old
+group's FPR was 0.492754, while the young group's FPR was 0.666667.
+
+ExponentiatedGradient with an equalized-odds constraint did not perform
+best on equalized odds on the test set. It achieved accuracy 0.750000
+and demographic-parity difference 0.003280, but its equalized-odds
+difference was 0.192547. This reminds us that a constraint fitted on the
+training data does not guarantee the smallest test-set fairness gap.
+
+ThresholdOptimizer with demographic parity achieved accuracy 0.740000,
+demographic-parity difference 0.074847, and equalized-odds difference
+0.283644. ThresholdOptimizer with equalized odds achieved accuracy
+0.733333, demographic-parity difference 0.005214, and equalized-odds
+difference 0.157350. Both threshold-optimisation methods use
+group-specific decision rules, so they must be interpreted differently
+from a single common classifier.
+
+No method eliminated both fairness gaps without cost. The smallest
+demographic-parity difference came from ExponentiatedGradient with
+DemographicParity, but its equalized-odds difference worsened relative
+to the baseline without age. The smallest equalized-odds difference came
+from Reweighing, but it did not eliminate demographic-parity difference.
+The two frontier plots therefore represent different trade-offs rather
+than one universal fairness frontier.
