@@ -1,6 +1,12 @@
 # Fairness in Credit-Risk Classification
 
-**Group members:** Da and Ma
+**Group members:** Davis Joseph and Malone Mfono
+
+**Institution:** Aivancity
+
+**Professor:** Professor David Appadourai
+
+**GitHub repository:** https://github.com/davisjoseph6/fairness-lab.git
 
 ## Introduction and methodology
 
@@ -24,6 +30,19 @@ separately for auditing even when it is removed from the predictive
 features. This distinction is central to the lab: deleting a sensitive
 column from the model is not the same thing as proving that the model no
 longer produces group disparities.
+
+## Repository and submission artifacts
+
+The full project repository and submission artifacts are available here:
+
+- Repository: https://github.com/davisjoseph6/fairness-lab.git
+- Pre-computation commitments: https://github.com/davisjoseph6/fairness-lab/blob/main/00_commitments.md
+- Runnable notebook: https://github.com/davisjoseph6/fairness-lab/blob/main/notebooks/fairness_lab.ipynb
+- Exported notebook HTML: https://github.com/davisjoseph6/fairness-lab/blob/main/outputs/fairness_lab.html
+- Output tables: https://github.com/davisjoseph6/fairness-lab/tree/main/outputs/tables
+- Output figures: https://github.com/davisjoseph6/fairness-lab/tree/main/outputs/figures
+- Final report PDF: https://github.com/davisjoseph6/fairness-lab/blob/main/report/fairness_report.pdf
+
 
 ## 1. Baseline disparity
 
@@ -247,8 +266,6 @@ Our deployment conclusion is cautious. The model should not be deployed
 as a fully automated credit-decision system. At most, it could be used
 as a documented decision-support tool with bias monitoring, human
 review, reason codes, and an appeal route.
-
-## References
 
 ## References
 
