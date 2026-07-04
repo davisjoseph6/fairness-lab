@@ -1,3 +1,30 @@
+# Fairness in Credit-Risk Classification
+
+**Group members:** Da and Ma
+
+## Introduction and methodology
+
+This report audits fairness in a binary credit-risk classifier trained
+on the German Credit dataset. The target is encoded as good credit = 1
+and bad credit = 0. The sensitive attribute is age, divided into young
+applicants, defined as age below 25, and old applicants, defined as age
+25 or above.
+
+The experiment studies three families of fairness. Demographic parity
+belongs to independence and asks whether groups receive positive
+predictions at similar rates. Equalized odds belongs to separation and
+asks whether error rates are similar across groups conditional on the
+true label. Positive predictive value and calibration belong to
+sufficiency and ask whether a positive prediction means the same thing
+across groups.
+
+The notebook uses one fixed train/test split, one random seed, one
+positive-class definition, and one age-group definition. Age is retained
+separately for auditing even when it is removed from the predictive
+features. This distinction is central to the lab: deleting a sensitive
+column from the model is not the same thing as proving that the model no
+longer produces group disparities.
+
 ## 1. Baseline disparity
 
 Our pre-computation expectation was that applicants below 25 would be
@@ -67,19 +94,28 @@ kept the same accuracy, 0.746667, while reducing demographic-parity
 difference to 0.076528 and equalized-odds difference to 0.111801. This
 was the best equalized-odds result among the main methods.
 
-ExponentiatedGradient with a demographic-parity constraint produced the
-highest accuracy, 0.766667, and almost eliminated the demographic-parity
-difference, reducing it to 0.000673. However, its equalized-odds
-difference increased to 0.173913. This shows that improving
-independence did not automatically improve separation. The improvement
-in selection parity came with a larger false-positive-rate gap: the old
-group's FPR was 0.492754, while the young group's FPR was 0.666667.
+Among the main named mitigation methods, ExponentiatedGradient with a
+demographic-parity constraint produced the highest accuracy, 0.766667,
+and almost eliminated the demographic-parity difference, reducing it to
+0.000673. In the epsilon sweep, the related EG-DP eps=0.2 point reached
+accuracy 0.770000 with demographic-parity difference 0.003280, but its
+equalized-odds difference remained 0.173913. This reinforces the same
+trade-off: the strongest demographic-parity points did not also minimise
+equalized odds.
+
+For the main ExponentiatedGradient demographic-parity model, the
+improvement in selection parity came with a larger false-positive-rate
+gap: the old group's FPR was 0.492754, while the young group's FPR was
+0.666667. This shows that improving independence did not automatically
+improve separation.
 
 ExponentiatedGradient with an equalized-odds constraint did not perform
 best on equalized odds on the test set. It achieved accuracy 0.750000
 and demographic-parity difference 0.003280, but its equalized-odds
-difference was 0.192547. This reminds us that a constraint fitted on the
-training data does not guarantee the smallest test-set fairness gap.
+difference was 0.192547. The epsilon sweep also showed that the EG-EO
+points kept equalized-odds difference around 0.192547 on this test set.
+This reminds us that a constraint fitted on the training data does not
+guarantee the smallest test-set fairness gap.
 
 ThresholdOptimizer with demographic parity achieved accuracy 0.740000,
 demographic-parity difference 0.074847, and equalized-odds difference
@@ -89,10 +125,31 @@ difference 0.157350. Both threshold-optimisation methods use
 group-specific decision rules, so they must be interpreted differently
 from a single common classifier.
 
+The two frontier plots also show that demographic parity and equalized
+odds are not one single fairness axis.
+
+![Accuracy versus demographic-parity difference](../outputs/figures/mission3_dp_accuracy_frontier.png)
+
+![Accuracy versus equalized-odds difference](../outputs/figures/mission3_eo_accuracy_frontier.png)
+
 No method eliminated both fairness gaps without cost. The smallest
-demographic-parity difference came from ExponentiatedGradient with
-DemographicParity, but its equalized-odds difference worsened relative
-to the baseline without age. The smallest equalized-odds difference came
-from Reweighing, but it did not eliminate demographic-parity difference.
-The two frontier plots therefore represent different trade-offs rather
-than one universal fairness frontier.
+demographic-parity difference among the main methods came from
+ExponentiatedGradient with DemographicParity, but its equalized-odds
+difference worsened relative to the baseline without age. The smallest
+equalized-odds difference among the main methods came from Reweighing,
+but it did not eliminate demographic-parity difference. The two frontier
+plots therefore represent different trade-offs rather than one
+universal fairness frontier.
+
+## Current status
+
+At this point, Missions 1, 2, and 3 are complete. The next required
+steps are Mission 4, where Da and Ma must choose and defend one
+operating point, and Mission 5, where the chosen system must be assessed
+as a possible deployed credit-scoring product.
+
+## References so far
+
+- Fairness in Machine Learning — Lab Brief, Prof. David Appadourai.
+- Fairlearn documentation for MetricFrame, demographic parity,
+  equalized odds, ExponentiatedGradient, and ThresholdOptimizer.
