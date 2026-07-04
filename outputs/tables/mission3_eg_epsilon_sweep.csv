@@ -1,0 +1,11 @@
+method,fairness_family_targeted,accuracy,selection_rate,DP_difference,EO_difference,old_TPR,young_TPR,TPR_gap_abs,old_FPR,young_FPR,FPR_gap_abs,old_PPV,young_PPV,notes
+EG-DP eps=0.01,Independence,0.7533333333333333,0.7866666666666666,0.024556387183584216,0.14492753623188404,0.8913043478260869,0.8461538461538461,0.04515050167224077,0.5217391304347826,0.6666666666666666,0.14492753623188404,0.82,0.6111111111111112,Epsilon sweep point for frontier plot.
+EG-DP eps=0.02,Independence,,,,,,,,,,,,,Failed: data can be loaded only once
+EG-DP eps=0.05,Independence,,,,,,,,,,,,,Failed: data can be loaded only once
+EG-DP eps=0.1,Independence,,,,,,,,,,,,,Failed: data can be loaded only once
+EG-DP eps=0.2,Independence,,,,,,,,,,,,,Failed: data can be loaded only once
+EG-EO eps=0.01,Separation,0.75,0.79,0.028508956353544668,0.1925465838509317,0.8967391304347826,0.8076923076923077,0.08904682274247488,0.5217391304347826,0.7142857142857143,0.1925465838509317,0.8208955223880597,0.5833333333333334,Epsilon sweep point for frontier plot.
+EG-EO eps=0.02,Separation,,,,,,,,,,,,,Failed: data can be loaded only once
+EG-EO eps=0.05,Separation,,,,,,,,,,,,,Failed: data can be loaded only once
+EG-EO eps=0.1,Separation,,,,,,,,,,,,,Failed: data can be loaded only once
+EG-EO eps=0.2,Separation,,,,,,,,,,,,,Failed: data can be loaded only once

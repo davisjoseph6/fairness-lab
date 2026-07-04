@@ -1,0 +1,5 @@
+group,label,group_count,label_count,joint_count,weight
+old,0,598,210,170,1.0552941176470587
+old,1,598,490,428,0.97803738317757
+young,0,102,210,40,0.765
+young,1,102,490,62,1.1516129032258065
