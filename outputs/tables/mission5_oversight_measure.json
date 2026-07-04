@@ -1,0 +1,9 @@
+{
+  "oversight_measure": "Manual review band and appeal route",
+  "which_cases_are_reviewed": "All rejected applications, plus borderline approvals or rejections within a predefined score interval.",
+  "reviewer": "Trained credit officer",
+  "reviewer_powers": "The reviewer may approve, reject, request additional documents, or override or reverse the model recommendation.",
+  "information_given_to_reviewer": "Model score, reason codes, applicant file, known model limitations, and a warning against automation bias.",
+  "applicant_rights": "Rejected applicants receive a reason code and can request human review or contest the decision.",
+  "deployment_conclusion": "Do not deploy as a fully automated credit-decision system. Deploy only, if at all, as a documented decision-support tool."
+}
