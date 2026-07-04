@@ -28,3 +28,30 @@ employment, housing, credit duration, credit history, savings, and
 foreign-worker status may plausibly preserve age-related information as
 proxies. Removing age mostly removes the explicit variable; it does not
 remove all age-related structure from the data.
+
+## 2. Calibration and equal-error impossibility
+
+Using the baseline model, we verified Chouldechova's identity separately
+for the old and young groups. For the old group, the observed false
+positive rate was 0.507246 and the right-hand side of the identity was
+also 0.507246, with only floating-point error. For the young group, the
+observed false positive rate was 0.571429 and the identity also returned
+0.571429.
+
+The base rates were not equal. The old group had a positive-class base
+rate of 0.727273, while the young group had a base rate of 0.553191.
+This difference matters because the identity links the false positive
+rate to the base rate, the positive predictive value, and the false
+negative rate.
+
+To demonstrate the conflict numerically, we used the pooled baseline
+PPV, 0.792035, as a common PPV value for both groups. Under that common
+PPV, while holding the observed false negative rates fixed, the identity
+forced the old group's FPR to 0.608858 and the young group's FPR to
+0.237563. The resulting FPR gap was 0.371294.
+
+Therefore, the conflict is not merely a bug in our classifier. It is a
+counting relationship. When groups have different base rates, equal
+calibration or equal PPV does not generally coexist with equal error
+rates. A stakeholder demand for both equal calibration and equal FPR is
+therefore mathematically incompatible in ordinary non-perfect settings.
